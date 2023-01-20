@@ -1,51 +1,23 @@
-import React from "react";
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import HomePage from "./pages/HomePage";
-import CategoriesPage from "./pages/CategoriesPage";
-import Header from "./components/Interface/Header";
-import './App.css'
+import HomePage from './pages/HomePage';
+import CategoriesPage from './pages/CategoriesPage';
+import Header from './components/Interface/Header';
+import './App.css';
 
-const App = () => {
-   return (
-    <>
-   <Header />
+const App = () => (
+  <>
+    <Header />
     <Routes>
-    <Route path="/" element={<HomePage />}/>
-    <Route path="/categories" element={<CategoriesPage />}/>
-  </Routes></>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/categories" element={<CategoriesPage />} />
+    </Routes>
+  </>
 
-   )
-
-}
+);
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from 'react'
 // import {BrowserRouter as Routes, Route, } from 'react-router-dom';

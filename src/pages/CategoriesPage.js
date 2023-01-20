@@ -1,10 +1,11 @@
-
+import React from 'react';
+import Card from '../components/Interface/Card';
 
 const CategoriesPage = () => (
-    <div>
-       <h2>Hello from CategoriesPage</h2>
-       <button type="button">Check Progress</button>
-    </div>
- )
+  <Card>
+    <h2>Hello from CategoriesPage</h2>
+    <button type="button">Check Progress</button>
+  </Card>
+);
 
- export default CategoriesPage;
+export default CategoriesPage;
