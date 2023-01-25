@@ -1,4 +1,4 @@
-const CHECK_STATUS = 'categories/CHECK_STATUS';
+export const CHECK_STATUS = 'categories/CHECK_STATUS';
 
 export const initialState = {
   categories: [],

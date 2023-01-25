@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
-const BookList = ({ books, onRemoveBook }) => (
+const BookList = () => {
+const books = useSelector((state) => state.books.books);
+return(
   <ul>
     {books.map((book) => (
       <Book
@@ -11,11 +14,11 @@ const BookList = ({ books, onRemoveBook }) => (
         title={book.title}
         author={book.author}
         category={book.category}
-        onRemoveBookHandler={onRemoveBook}
-      />
+        />
     ))}
   </ul>
-);
+)
+}
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(
