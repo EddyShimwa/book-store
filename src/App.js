@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import HomePage from './pages/HomePage';
 import CategoriesPage from './pages/CategoriesPage';
 import Header from './components/Interface/Header';
@@ -14,7 +13,6 @@ const App = () => (
       <Route path="/categories" element={<CategoriesPage />} />
     </Routes>
   </>
-
 );
 
 export default App;
