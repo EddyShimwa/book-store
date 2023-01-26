@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h1><b>Math Magicians</b></h1>
+  <h1><b>Book store React App</b></h1>
 
 </div>
 
@@ -39,7 +39,7 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li>React</li>
+    <li>React&Redux</li>
     <li>CSS</li>
     <li>JAVASCRIPT</li>
   </ul>
@@ -50,8 +50,8 @@
 > Some key feature of this project
 > Features
 
-- **User can calculate simple math equations**
-- **User can read random math quotes**
+- **User can add the book or remove*
+- **User can see the the books he read**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -77,7 +77,7 @@
 > Clone this repository to your desired folder: cd [folder] to navigate and run the below comand to clone the project
 
 ```sh
-git clone https://github.com/EddyShimwa/math-magiciians.git
+git clone https://github.com/EddyShimwa/book-store.git
 ```
 
 ### Install
