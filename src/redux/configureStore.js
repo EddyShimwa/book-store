@@ -3,7 +3,7 @@ import bookReducer from './books/books';
 import categoryReducer from './categories/categories';
 
 const myStore = () => {
-  const store = configureStore({ reducer: { book: bookReducer, category: categoryReducer } });
+  const store = configureStore({ reducer: { books: bookReducer, category: categoryReducer } });
   return store;
 };
 
