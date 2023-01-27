@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { CHECK_STATUS } from '../redux/categories/categories';
 import Card from '../components/Interface/Card';
+import classes from './CategoriesPage.module.css';
 
 const CategoriesPage = () => {
   const status = useSelector((state) => state.categories);
@@ -18,8 +19,8 @@ const CategoriesPage = () => {
   }
 
   return (
-    <Card>
-      <h2>Hello Form CategoriesPage</h2>
+    <Card extraclass={classes.container}>
+      <h2>Welcome to Categories Page!</h2>
       {statusContent}
       <button type="button" onClick={checkStatusHandler}>
         Check status

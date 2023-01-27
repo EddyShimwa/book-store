@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { postNewBook } from '../../redux/books/books';
 import Card from '../Interface/Card';
+import classes from './AddBook.module.css';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -58,11 +59,11 @@ const AddBook = () => {
   }, [isTitleValid, isAuthorValid, title, author]);
 
   return (
-    <Card>
+    <Card extraclass={classes.form_container}>
       <h3>Add New Book</h3>
-      <form onSubmit={handleAddBook}>
-        <div className={!isTitleValid ? 'invalid' : ''}>
-          <p>{!isTitleValid && 'Book title should be 3 to 55 char long!'}</p>
+      <form onSubmit={handleAddBook} className={classes.form}>
+        <div className={`${classes.form_control} ${!isTitleValid ? 'invalid' : ''}`}>
+          <p>{!isTitleValid && 'Book title should be 3 to 20 char long!'}</p>
           <input
             id="title"
             type="text"
@@ -71,25 +72,25 @@ const AddBook = () => {
             onChange={handleTitleChange}
           />
         </div>
-        <div className={!isAuthorValid ? 'invalid' : ''}>
-          <p>
-            {!isAuthorValid && 'Book author name should be 3 to 25 char long!'}
-          </p>
+        <div className={`${classes.form_control} ${!isAuthorValid ? 'invalid' : ''}`}>
           <input
             type="text"
             placeholder="Author"
             value={author}
             onChange={handleAuthorChange}
           />
+          <p>
+            {!isAuthorValid && 'Book author name should be 3 to 25 char long!'}
+          </p>
         </div>
-        <div>
+        <div className={classes.form_control}>
           <select ref={categoryRef}>
             <option value="Action">Action</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Economy">Economy</option>
           </select>
         </div>
-        <div>
+        <div className={classes.form_action}>
           <button type="submit">Add book</button>
         </div>
       </form>

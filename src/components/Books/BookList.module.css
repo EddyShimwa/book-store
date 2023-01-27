@@ -1,0 +1,8 @@
+.books {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Slab", serif;
+  padding: 3%;
+  list-style: none;
+  gap: 0.938rem;
+}

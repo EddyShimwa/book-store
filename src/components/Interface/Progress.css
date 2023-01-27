@@ -1,0 +1,17 @@
+.box {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+
+.circle svg {
+  position: relative;
+  width: 110px !important;
+  height: 80px;
+}
+
+.circle svg circle {
+  transform: translate(5px, 5px);
+}

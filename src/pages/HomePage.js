@@ -31,9 +31,6 @@ const HomePage = () => {
   return (
     <section>
       <Card>
-        <h1>
-          Hello from HomePage
-        </h1>
         <BookList onRemoveBook={removeBookHandler} books={dummyBooks} />
         <AddBook />
       </Card>
