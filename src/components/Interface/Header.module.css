@@ -3,6 +3,10 @@
 .header {
   display: flex;
   flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  gap: 40px;
   padding: 1rem 3%;
   background: #fff;
   justify-content: center;
@@ -15,7 +19,7 @@
   align-items: center;
 }
 
-.nav_title h1 {
+.title h1 {
   color: #0290ff;
   margin-right: 15px;
   font-size: 1.875rem;
