@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { ADD_BOOK } from '../../redux/books/books';
+import { postNewBook } from '../../redux/books/books';
 import Card from '../Interface/Card';
 
 const AddBook = () => {
@@ -37,7 +37,7 @@ const AddBook = () => {
     event.preventDefault();
     if (isFormValid) {
       dispatch(
-        ADD_BOOK({
+        postNewBook({
           title: title.trim(),
           author: author.trim(),
           category: categoryRef.current.value.trim(),
@@ -84,9 +84,6 @@ const AddBook = () => {
         </div>
         <div>
           <select ref={categoryRef}>
-            <option value="Action">Action</option>
-            <option value="Science Fiction">Science Fiction</option>
-            <option value="Economy">Economy</option>
             <option value="Action">Action</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Economy">Economy</option>

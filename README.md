@@ -9,7 +9,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [ 💻 Math Magicians ](#-math-magicians-)
+- [ 💻Book-Store ]()
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -26,7 +26,7 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 💻 Math Magicians <a name="about-project"></a>
+# 💻 Book Store <a name="about-project"></a>
 
 >Book store
 
