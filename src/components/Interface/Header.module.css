@@ -1,3 +1,45 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css';
+
 .header {
   display: flex;
+  flex-direction: column;
+  padding: 1rem 3%;
+  background: #fff;
+  justify-content: center;
+  min-height: 90px;
+}
+
+.navContent {
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav_title h1 {
+  color: #0290ff;
+  margin-right: 15px;
+  font-size: 1.875rem;
+}
+
+.nav_items {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.user_action {
+  margin-left: auto;
+}
+
+.user_action button {
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 50%;
+  border: 1px solid #0290ff;
+  color: #0290ff;
+}
+
+.user_action button:hover {
+  color: #044374;
+  border-color: #044374;
 }
