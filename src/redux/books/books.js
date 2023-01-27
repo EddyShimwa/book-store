@@ -1,72 +1,125 @@
-import { createReducer, createAction } from '@reduxjs/toolkit';
+import { createReducer, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+import { Actions } from '../UI/slice';
 
-export const ADD_BOOK = createAction('books/add');
-export const REMOVE_BOOK = createAction('book/remove');
+const myId = '19vqSVg6r4EcmNkPgMeK';
+axios.defaults.baseURL = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${myId}/books`;
 
+// myActionss
+export const fetchBooks = createAsyncThunk(
+  'book/fetch_books',
+  async (arg, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(Actions.pendingModal());
+      const response = await axios.get();
+      if (response.status !== 200) {
+        throw Error('Something went wrong!!');
+      }
+      const data = { ...response.data };
+      if (!data) {
+        throw Error('No Data found!');
+      }
+      const booksArr = [];
+      Object.keys(data).forEach((key) => {
+        booksArr.push({
+          id: key,
+          title: data[key][0].title,
+          author: data[key][0].author,
+          category: data[key][0].category,
+        });
+      });
+
+      thunkAPI.dispatch(Actions.closeModal());
+      return booksArr || [];
+    } catch (err) {
+      thunkAPI.dispatch(
+        Actions.rejectModal(err.message || 'Failed to create the book!!'),
+      );
+    }
+    return null;
+  },
+);
+
+export const postNewBook = createAsyncThunk(
+  'books/add',
+  async (book, thunkAPI) => {
+    try {
+      const bookData = {
+        item_id: uuidv4(),
+        title: book.title,
+        author: book.author,
+        category: book.category,
+      };
+      thunkAPI.dispatch(Actions.pendingModal());
+      const response = await axios.post('', { ...bookData });
+      if (response.status === 201) {
+        thunkAPI.dispatch(
+          Actions.successModal('Book is successfully created!!'),
+        );
+        return bookData;
+      }
+    } catch (err) {
+      thunkAPI.dispatch(
+        Actions.rejectModal(err.message || 'Failed to create the book!!'),
+      );
+    }
+
+    return null;
+  },
+);
+
+export const removeBook = createAsyncThunk(
+  'book/remove',
+  async (id, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(Actions.pendingModal());
+      const response = await axios.delete(`/${id}`);
+      if (response.status !== 201) {
+        throw Error('Failed to delete the book!!');
+      }
+      thunkAPI.dispatch(Actions.successModal(response.data));
+      return id;
+    } catch (err) {
+      thunkAPI.dispatch(
+        Actions.rejectModal(err.message || 'Failed to delete the book!!'),
+      );
+    }
+    return null;
+  },
+);
+
+// initialState
 const initialState = {
-  books: [
-    {
-      id: '1',
-      title: 'Harry Potter and the Sorcerers Stone',
-      author: 'J.K. Rowling',
-      category: 'Fantasy',
-    },
-    {
-      id: '2',
-      title: 'The Lord of the Rings',
-      author: 'J.R.R. Tolkien',
-      category: 'Fantasy',
-    },
-    {
-      id: '3',
-      title: 'The Catcher in the Rye',
-      author: 'J.D. Salinger',
-      category: 'Coming of Age',
-    },
-    {
-      id: '4',
-      title: 'The Great Gatsby',
-      author: 'F. Scott Fitzgerald',
-      category: 'Literary Fiction',
-    },
-    {
-      id: '5',
-      title: '1984',
-      author: 'George Orwell',
-      category: 'Dystopian',
-    },
-    {
-      id: '6',
-      title: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      category: 'Literary Fiction',
-    },
-    {
-      id: '7',
-      title: 'Brave New World',
-      author: 'Aldous Huxley',
-      category: 'Dystopian',
-    },
-  ],
+  books: [],
 };
 
+// reducer
 const booksReducer = createReducer(initialState, (builder) => {
-  builder.addCase(ADD_BOOK, (state, action) => {
+  builder.addCase(fetchBooks.fulfilled, (state, action) => {
     const updatedState = {
       ...state,
-      books: [
-        ...state.books,
-        { ...action.payload, id: `${state.books.length + 1}` },
-      ],
+      books: [...action.payload],
     };
     return updatedState;
   });
 
-  builder.addCase(REMOVE_BOOK, (state, action) => {
+  builder.addCase(removeBook.fulfilled, (state, action) => {
     const updatedBooks = [...state.books].filter(
       (book) => book.id !== action.payload,
     );
     return { ...state, books: updatedBooks };
+  });
+
+  builder.addCase(postNewBook.fulfilled, (state, { payload }) => {
+    const book = {
+      id: payload.item_id,
+      title: payload.title,
+      author: payload.author,
+      category: payload.category,
+    };
+    const updatedState = { ...state, books: [...state.books, { ...book }] };
+    return updatedState;
   });
   builder.addDefaultCase((state) => state);
 });
