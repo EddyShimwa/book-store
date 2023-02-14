@@ -66,7 +66,7 @@
 
 > ## Project demo
 >
-> - [Live Demo Link](my-book-store.onrender.com)
+> - [Live Demo Link](https://my-book-store.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
