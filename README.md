@@ -1,6 +1,8 @@
 <a name="readme-top"></a>
 
 <div align="center">
+  
+  ![myLogo](https://user-images.githubusercontent.com/88631022/218738708-c2c0221d-a2e5-443a-8ab1-50bd5cb0d285.PNG)
 
   <h1><b>Book store React App</b></h1>
 
@@ -134,7 +136,7 @@ npm run build
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **I will add math calculation function**
+- **I will add image function to present the books**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
