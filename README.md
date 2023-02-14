@@ -28,7 +28,7 @@
 
 # 💻 Book Store <a name="about-project"></a>
 
->Book store
+>This book-store app allows users to easily add books, set reading goals, and track their reading progress.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -50,6 +50,12 @@
 > Some key feature of this project
 > Features
 
+![BookStore](https://user-images.githubusercontent.com/88631022/218737574-d5d3f32f-3996-4420-80a4-a83676178272.PNG)
+
+![BOOKSTOREe](https://user-images.githubusercontent.com/88631022/218737669-63cde533-2f27-46f6-b11f-ed955b9536b6.PNG)
+
+
+
 - **User can add the book or remove*
 - **User can see the the books he read**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -58,7 +64,7 @@
 
 > ## Project demo
 >
-> Site is under construction and the Project Demo will update soon.
+> - [Live Demo Link](my-book-store.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
